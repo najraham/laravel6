@@ -28,6 +28,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/users', 'UserController@index')->name('users_index');
     Route::get('/user/add', 'UserController@add')->name('add_user');
     Route::post('/user/create', 'UserController@create')->name('create_user');
+    Route::get('/user/{user}/edit', 'UserController@edit')->name('edit_user');
+    Route::post('/user/{user}/update', 'UserController@update')->name('update_user');
 });
 
 Auth::routes();

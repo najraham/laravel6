@@ -33,4 +33,22 @@ class UserController extends Controller
 
         return redirect(route('users_index'));
     }
+    public  function edit( User $user) {
+        return view('pages.users.edit', ['user' =>$user]);
+    }
+
+    public function update(Request $request, User $user) {
+        $this->validate($request, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.$user->id],
+        ]);
+
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->is_admin = $request->input('is_admin') ?? false;
+        $user->save();
+
+        return redirect(route('users_index'));
+    }
+
 }

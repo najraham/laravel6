@@ -39,7 +39,7 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <a href="" class="btn btn-warning">Edit</a>
+                                            <a href="{{ route('edit_user', $user->id) }}" class="btn btn-warning">Edit</a>
                                             <a href="" class="btn btn-danger">Delete</a>
                                         </td>
                                     </tr>
