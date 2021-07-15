@@ -22,6 +22,7 @@ class CreateBlogsTable extends Migration
             $table->text('svg_path_d');
             $table->string('icon_color');
             $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

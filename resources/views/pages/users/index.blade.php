@@ -40,7 +40,10 @@
                                         </td>
                                         <td>
                                             <a href="{{ route('edit_user', $user->id) }}" class="btn btn-warning">Edit</a>
-                                            <a href="" class="btn btn-danger">Delete</a>
+                                            <form action="{{ route('delete_user', $user->id) }}" method="POST" class="d-inline-block">
+                                                @csrf
+                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                            </form>
                                         </td>
                                     </tr>
                                 @empty

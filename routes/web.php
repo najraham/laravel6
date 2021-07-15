@@ -30,6 +30,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/user/create', 'UserController@create')->name('create_user');
     Route::get('/user/{user}/edit', 'UserController@edit')->name('edit_user');
     Route::post('/user/{user}/update', 'UserController@update')->name('update_user');
+    Route::post('/user/{user}/delete', 'UserController@delete')->name('delete_user');
 });
 
 Auth::routes();

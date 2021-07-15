@@ -87,6 +87,7 @@ class BlogsController extends Controller
         $blog->icon_color = $color[array_rand($color)];
         $blog->class = $class[array_rand($class)];
         $blog->svg_path_d = $svg_path_d[array_rand($svg_path_d)];
+        $blog->user_id = Auth::user()->id;
 
         $blog->save();
 
