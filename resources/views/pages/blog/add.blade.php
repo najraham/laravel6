@@ -14,7 +14,7 @@
                     <div class="card">
 
                         <div class="card-body">
-                            <form method="POST" action="{{ route('create_blog') }}">
+                            <form method="POST" action="{{ route('create_blog') }}" enctype="multipart/form-data">
                                 @csrf
 
                                 <div class="form-group row mt-3">
@@ -38,6 +38,20 @@
                                         <textarea id="description" rows="10" class="form-control @error('description') is-invalid @enderror" name="description" autocomplete="title" autofocus>{{ old('description') ? old('description'): '' }}</textarea>
 
                                         @error('description')
+                                        <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="form-group row mt-3">
+                                    <label for="picture" class="col-md-3 col-form-label text-md-right">Picture</label>
+
+                                    <div class="col-md-8">
+                                        <input id="picture" type="file" class="form-control @error('picture') is-invalid @enderror" name="picture" value="{{ old('picture') ? old('picture'): '' }}"  autocomplete="picture" autofocus>
+
+                                        @error('picture')
                                         <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>

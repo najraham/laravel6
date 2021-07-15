@@ -44,12 +44,14 @@ class BlogsController extends Controller
         $this->validate($request, [
             'title' => 'required|min:5',
             'description' => 'required',
-            'tags' => 'required'
+            'tags' => 'required',
+            'picture' => 'required'
         ]);
 
         $blog->title = $request->input('title');
         $blog->description = $request->input('description');
         $blog->excerpt = Str::words($blog->description, 10);
+        $blog->picture = $request->file('picture')->store('public');
 
         $blog->save();
 
@@ -66,7 +68,8 @@ class BlogsController extends Controller
         $this->validate($request, [
             'title' => 'required|min:5',
             'description' => 'required',
-            'tags' => 'required'
+            'tags' => 'required',
+            'picture' => 'required'
         ]);
 
         $color = ['red', 'blue', 'teal', 'orange', 'pink', 'yellow'];
@@ -88,6 +91,8 @@ class BlogsController extends Controller
         $blog->class = $class[array_rand($class)];
         $blog->svg_path_d = $svg_path_d[array_rand($svg_path_d)];
         $blog->user_id = Auth::user()->id;
+
+        $blog->picture = $request->file('picture')->store('public');
 
         $blog->save();
 
