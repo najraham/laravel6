@@ -31,6 +31,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/user/{user}/edit', 'UserController@edit')->name('edit_user');
     Route::post('/user/{user}/update', 'UserController@update')->name('update_user');
     Route::post('/user/{user}/delete', 'UserController@delete')->name('delete_user');
+
+
+    //CONTACT
+    Route::post('/contact', 'ContactController@store')->name('send_email');
 });
 
 Auth::routes();
