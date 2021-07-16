@@ -76,7 +76,7 @@
                         <div class="my-3">
 {{--                            <div class="loading">Loading</div>--}}
 {{--                            <div class="error-message"></div>--}}
-                            <div class="sent-message alert-success">Your message has been sent. Thank you!</div>
+                            <div class="sent-message alert alert-success">Your message has been sent. Thank you!</div>
                         </div>
                         @endif
                         <div class="text-center">
